@@ -31,4 +31,13 @@ public class AccountTest {
         assertEquals("amount must be greater than zero", savingsAccount.sumTransactions());
     }
 
+    @Test //Test account withdraw with amount > 0
+    public void accountWithdraw() {
+        Account savingsAccount = new Account(Account.SAVINGS);
+        savingsAccount.deposit(2000.0);
+        savingsAccount.withdraw(1000.0);
+
+        assertEquals(1000, savingsAccount.sumTransactions(), DOUBLE_DELTA);
+    }
+
 }
