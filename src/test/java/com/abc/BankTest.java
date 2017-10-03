@@ -8,7 +8,7 @@ public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
 
     @Test
-    public void customerSummary() {
+    public void customerSummarySingleAccount() {
         Bank bank = new Bank();
         Customer john = new Customer("John");
         Account checkingAccount = new Account(Account.CHECKING);
@@ -17,6 +17,20 @@ public class BankTest {
         john.openAccount(checkingAccount);
 
         assertEquals("Customer Summary\n - John (1 account)", bank.customerSummary());
+    }
+
+    @Test
+    public void customerSummaryMultipleAccounts() {
+        Bank bank = new Bank();
+        Customer jane = new Customer("Jane");
+        Account checkingAccount = new Account(Account.CHECKING);
+        Account savingsAccount = new Account(Account.SAVINGS);
+
+        bank.addCustomer(jane);
+        jane.openAccount(checkingAccount);
+        jane.openAccount(savingsAccount);
+
+        assertEquals("Customer Summary\n - Jane (2 accounts)", bank.customerSummary());
     }
 
     @Test
