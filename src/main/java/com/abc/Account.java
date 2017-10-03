@@ -34,7 +34,7 @@ public class Account {
     }
 
     public double interestEarned() {
-        double amount = sumTransactions();
+        double amount = checkTransactions();
         switch(accountType){
             case SAVINGS:
                 if (amount <= 1000)
@@ -52,7 +52,7 @@ public class Account {
         }
     }
 
-    public double sumTransactions() {
+    public double checkTransactions() {
        return checkIfTransactionsExist(true);
     }
 
