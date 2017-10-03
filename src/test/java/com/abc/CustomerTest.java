@@ -8,6 +8,13 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 	private static final double DOUBLE_DELTA = 1e-15;
 
+    @Test //Test customer name
+    public void customerName(){
+        Customer oscar = new Customer("Oscar");
+
+        assertEquals("Oscar", oscar.getName());
+    }
+
     @Test //Test customer statement generation
     public void customerStatement(){
         Account checkingAccount = new Account(Account.CHECKING);
