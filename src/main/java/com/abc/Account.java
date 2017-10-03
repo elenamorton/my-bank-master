@@ -59,15 +59,15 @@ public class Account {
        return checkIfTransactionsExist(true);
     }
 
+    public int getAccountType() {
+        return accountType;
+    }
+
     private double checkIfTransactionsExist(boolean checkAll) {
         double amount = 0.0;
         for (Transaction t: transactions)
             amount += t.amount;
         return amount;
-    }
-
-    public int getAccountType() {
-        return accountType;
     }
 
 }
