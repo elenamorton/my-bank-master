@@ -55,7 +55,15 @@ public class AccountTest {
         Account savingsAccount = new Account(Account.SAVINGS);
         savingsAccount.deposit(1000.0);
 
-        assertEquals(1, savingsAccount.interestEarned(), DOUBLE_DELTA);
+        assertEquals(1.0, savingsAccount.interestEarned(), DOUBLE_DELTA);
+    }
+
+    @Test //Test account interest earned on savings account with more than 1000 money
+    public void accountSavingsInterest2000() {
+        Account savingsAccount = new Account(Account.SAVINGS);
+        savingsAccount.deposit(2000.0);
+
+        assertEquals(3.0, savingsAccount.interestEarned(), DOUBLE_DELTA);
     }
     
 }
