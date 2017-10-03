@@ -33,7 +33,7 @@ public class CustomerTest {
                 "Total In All Accounts $3,900.00", henry.getStatement());
     }
 
-    @Test
+    @Test //Test customer with one account
     public void customerHasOneAccount(){
         Account savingsAccount = new Account(Account.SAVINGS);
         Customer oscar = new Customer("Oscar");
@@ -43,7 +43,7 @@ public class CustomerTest {
         assertEquals(1, oscar.getNumberOfAccounts());
     }
 
-    @Test
+    @Test //Test customer with two accounts
     public void customerHasTwoAccounts(){
         Account checkingAccount = new Account(Account.CHECKING);
         Account savingsAccount = new Account(Account.SAVINGS);
@@ -54,7 +54,7 @@ public class CustomerTest {
         assertEquals(2, oscar.getNumberOfAccounts());
     }
 
-    @Test
+    @Test //Test customer with three accounts
     public void customerHasThreeAccounts() {
         Account checkingAccount = new Account(Account.CHECKING);
         Account savingsAccount = new Account(Account.SAVINGS);
@@ -68,7 +68,7 @@ public class CustomerTest {
         assertEquals(3, oscar.getNumberOfAccounts());
     }
 
-	@Test
+	@Test //Test total interest for customer with two accounts
     public void customerTwoAccountsInterest() {
         Account checkingAccount = new Account(Account.CHECKING);
         Account savingsAccount = new Account(Account.SAVINGS);
