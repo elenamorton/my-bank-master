@@ -73,5 +73,13 @@ public class AccountTest {
 
         assertEquals(3.0, savingsAccount.interestEarned(), DOUBLE_DELTA);
     }
+
+    @Test //Test account interest earned on maxi-savings account with up to 1000 money
+    public void accountMaxiSavingsInterest1000() {
+        Account maxiSavingsAccount = new Account(Account.MAXI_SAVINGS);
+        maxiSavingsAccount.deposit(1000.0);
+
+        assertEquals(20.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
+    }
     
 }
