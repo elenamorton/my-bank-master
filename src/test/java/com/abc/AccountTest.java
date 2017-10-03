@@ -49,5 +49,13 @@ public class AccountTest {
 
         assertEquals("amount must be greater than zero", savingsAccount.sumTransactions());
     }
+
+    @Test //Test account interest earned on savings account with up to 1000 money
+    public void accountSavingsInterest1000() {
+        Account savingsAccount = new Account(Account.SAVINGS);
+        savingsAccount.deposit(1000.0);
+
+        assertEquals(1, savingsAccount.interestEarned(), DOUBLE_DELTA);
+    }
     
 }
