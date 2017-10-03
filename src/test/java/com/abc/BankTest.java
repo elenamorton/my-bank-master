@@ -20,6 +20,13 @@ public class BankTest {
     }
 
     @Test
+    public void getFirstCustomerNotExists() {
+        Bank bank = new Bank();
+
+        assertEquals("Error", bank.getFirstCustomer());
+    }
+
+    @Test
     public void customerSummarySingleAccount() {
         Bank bank = new Bank();
         Customer john = new Customer("John");
