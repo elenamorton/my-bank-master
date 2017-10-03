@@ -40,4 +40,14 @@ public class AccountTest {
         assertEquals(1000, savingsAccount.sumTransactions(), DOUBLE_DELTA);
     }
 
+    //Test account withdraw with amount <= 0
+    @Test  (expected = IllegalArgumentException.class)
+    public void accountWithdrawNegative() {
+        Account savingsAccount = new Account(Account.SAVINGS);
+        savingsAccount.deposit(100.0);
+        savingsAccount.withdraw(-100.0);
+
+        assertEquals("amount must be greater than zero", savingsAccount.sumTransactions());
+    }
+    
 }
