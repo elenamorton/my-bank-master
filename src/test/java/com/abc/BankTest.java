@@ -8,6 +8,18 @@ public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
 
     @Test
+    public void getFirstCustomerExists() {
+        Bank bank = new Bank();
+        Customer john = new Customer("John");
+        Customer jane = new Customer("Jane");
+
+        bank.addCustomer(john);
+        bank.addCustomer(jane);
+
+        assertEquals("John", bank.getFirstCustomer());
+    }
+
+    @Test
     public void customerSummarySingleAccount() {
         Bank bank = new Bank();
         Customer john = new Customer("John");
