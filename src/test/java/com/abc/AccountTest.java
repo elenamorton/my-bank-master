@@ -9,17 +9,26 @@ public class AccountTest {
 
     @Test //Test account type
     public void accountType() {
-    	Account savingsAccount = new Account(Account.SAVINGS);
+        Account savingsAccount = new Account(Account.SAVINGS);
 
         assertEquals(1, savingsAccount.getAccountType());
     }
 
     @Test //Test account deposit with amount > 0
     public void accountDeposit() {
-    	Account savingsAccount = new Account(Account.SAVINGS);
-    	savingsAccount.deposit(2000.0);
+        Account savingsAccount = new Account(Account.SAVINGS);
+        savingsAccount.deposit(2000.0);
 
         assertEquals(2000, savingsAccount.sumTransactions(), DOUBLE_DELTA);
+    }
+
+    //Test account deposit with amount <= 0
+    @Test  (expected = IllegalArgumentException.class)
+    public void accountDepositNegative() {
+        Account savingsAccount = new Account(Account.SAVINGS);
+        savingsAccount.deposit(-100.0);
+
+        assertEquals("amount must be greater than zero", savingsAccount.sumTransactions());
     }
 
 }
