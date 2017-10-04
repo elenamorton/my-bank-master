@@ -106,4 +106,16 @@ public class CustomerTest {
         assertEquals(200, checkingAccount.sumTransactions(), DOUBLE_DELTA);
         assertEquals(900, savingsAccount.sumTransactions(), DOUBLE_DELTA);
     }
+
+	@Test //Test for a customer making a transfer between accounts using an unopened acount 
+    public void customerTransferBetweenAccountsError() {
+        Account checkingAccount = new Account(Account.CHECKING);
+        Account savingsAccount = new Account(Account.SAVINGS);
+        Customer oscar = new Customer("Oscar");
+
+        oscar.openAccount(savingsAccount);
+        savingsAccount.deposit(1000.0);
+
+        assertEquals("Transfer failed: accounts not found!", oscar.transferBetweenAccounts(savingsAccount, checkingAccount, 100.0));
+    }
 }
