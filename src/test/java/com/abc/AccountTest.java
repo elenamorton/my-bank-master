@@ -104,5 +104,12 @@ public class AccountTest {
 
         assertEquals(170.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
     }
-    
+
+    @Test //Test account interest earned on maxi-savings account with money (1000, 2000) and withdrawal in past 10 days
+    public void accountMaxiSavingsInterestTenDaysWithdraw() {
+        Account maxiSavingsAccount = new Account(Account.MAXI_SAVINGS);
+        maxiSavingsAccount.deposit(1500.0);
+        maxiSavingsAccount.withdraw(100.0);
+        assertEquals(1.4, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
+    }
 }
