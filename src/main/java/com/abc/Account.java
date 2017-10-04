@@ -34,7 +34,7 @@ public class Account {
     }
 
     public double interestEarned() {
-        double amount = sumTransactions();
+        double amount = (checkIfTransactionsExist()) ? sumTransactions() : 0.0;
         switch(accountType){
             case SAVINGS:
                 if (amount <= 1000)
@@ -52,19 +52,19 @@ public class Account {
         }
     }
 
-    public double sumTransactions() {
-       return checkIfTransactionsExist(true);
-    }
-
     public int getAccountType() {
         return accountType;
     }
 
-    private double checkIfTransactionsExist(boolean checkAll) {
-        double amount = 0.0;
+    public double sumTransactions() {
+        double sum = 0.0;
         for (Transaction t: transactions)
-            amount += t.amount;
-        return amount;
+            sum += t.amount;
+        return sum;
+    }
+
+    private boolean checkIfTransactionsExist() {
+        return !((null == transactions) && (transactions.isEmpty()));
     }
 
 }
