@@ -26,7 +26,7 @@ public class AccountTest {
     @Test  (expected = IllegalArgumentException.class)
     public void accountDepositNegative() {
         Account savingsAccount = new Account(Account.SAVINGS);
-        savingsAccount.deposit(-100.0);
+        savingsAccount.deposit(0);
 
         assertEquals("amount must be greater than zero", savingsAccount.sumTransactions());
     }
