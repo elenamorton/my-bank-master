@@ -86,7 +86,7 @@ public class AccountTest {
         Account maxiSavingsAccount = new Account(Account.MAXI_SAVINGS);
         maxiSavingsAccount.deposit(1000.0);
 
-        assertEquals(20.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
+        assertEquals(50.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
     }
 
     @Test //Test account interest earned on maxi-savings account with above 1000 and upto 2000 money
@@ -94,7 +94,7 @@ public class AccountTest {
         Account maxiSavingsAccount = new Account(Account.MAXI_SAVINGS);
         maxiSavingsAccount.deposit(2000.0);
 
-        assertEquals(70.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
+        assertEquals(100.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
     }
 
     @Test //Test account interest earned on maxi-savings account with above 2000 money
@@ -102,7 +102,7 @@ public class AccountTest {
         Account maxiSavingsAccount = new Account(Account.MAXI_SAVINGS);
         maxiSavingsAccount.deposit(3000.0);
 
-        assertEquals(170.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
+        assertEquals(150.0, maxiSavingsAccount.interestEarned(), DOUBLE_DELTA);
     }
 
     @Test //Test account interest earned on maxi-savings account with money (1000, 2000) and withdrawal in past 10 days
