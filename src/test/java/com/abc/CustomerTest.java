@@ -21,7 +21,8 @@ public class CustomerTest {
         Account savingsAccount = new Account(Account.SAVINGS);
         Customer henry = new Customer("Henry");
 
-        henry.openAccount(checkingAccount).openAccount(savingsAccount);
+        henry.openAccount(checkingAccount);
+        henry.openAccount(savingsAccount);
         checkingAccount.deposit(100.0);
         savingsAccount.deposit(4000.0);
         savingsAccount.withdraw(200.0);
@@ -90,4 +91,19 @@ public class CustomerTest {
         assertEquals(1.1, oscar.totalInterestEarned(), DOUBLE_DELTA);
     }
 
+	@Test //Test for customer with two accounts making a transfer between these
+    public void customerTransferBetweenTwoAccounts() {
+        Account checkingAccount = new Account(Account.CHECKING);
+        Account savingsAccount = new Account(Account.SAVINGS);
+        Customer oscar = new Customer("Oscar");
+
+        oscar.openAccount(checkingAccount);
+        oscar.openAccount(savingsAccount);
+        checkingAccount.deposit(100.0);
+        savingsAccount.deposit(1000.0);
+        oscar.transferBetweenAccounts(savingsAccount, checkingAccount, 100.0);
+
+        assertEquals(200, checkingAccount.sumTransactions(), DOUBLE_DELTA);
+        assertEquals(900, savingsAccount.sumTransactions(), DOUBLE_DELTA);
+    }
 }
