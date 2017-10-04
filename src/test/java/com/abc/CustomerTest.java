@@ -107,7 +107,7 @@ public class CustomerTest {
         assertEquals(900, savingsAccount.sumTransactions(), DOUBLE_DELTA);
     }
 
-	@Test //Test for a customer making a transfer between accounts using an unopened acount 
+	@Test //Test for a customer making a transfer between accounts using an unopened account 
     public void customerTransferBetweenAccountsError() {
         Account checkingAccount = new Account(Account.CHECKING);
         Account savingsAccount = new Account(Account.SAVINGS);
