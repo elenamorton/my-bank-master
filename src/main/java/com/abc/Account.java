@@ -2,12 +2,14 @@ package com.abc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 
 public class Account {
 
     public static final int CHECKING = 0;
     public static final int SAVINGS = 1;
     public static final int MAXI_SAVINGS = 2;
+    public static final long TEN_DAYS = 10 * 24 * 60 * 60 * 1000;
 
     private final int accountType;
     public List<Transaction> transactions;
@@ -42,11 +44,12 @@ public class Account {
                 else
                     return 1 + (amount-1000) * 0.002;
             case MAXI_SAVINGS:
-                if (amount <= 1000)
-                    return amount * 0.02;
-                if (amount <= 2000)
-                    return 20 + (amount-1000) * 0.05;
-                return 70 + (amount-2000) * 0.1;
+                Transaction t = transactions.get(transactions.size() - 1);
+                long time = DateProvider.getInstance().now().getTime();
+                if ((t.amount < 0.0) && ((t.transactionDate).getTime() + TEN_DAYS) > time)
+                    return amount * 0.001;
+                else
+                    return amount * 0.05;
             default:
                 return amount * 0.001;
         }
