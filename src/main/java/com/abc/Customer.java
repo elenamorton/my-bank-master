@@ -28,6 +28,15 @@ public class Customer {
         return accounts.size();
     }
 
+    public String transferBetweenAccounts(Account accountFrom, Account accountTo, double amount) {
+        if (accounts.contains(accountFrom) && accounts.contains(accountTo)) {
+            accountFrom.withdraw(amount);
+            accountTo.deposit(amount);
+            return "Transfer successful!";
+        }
+        return "Transfer failed: accounts not found!";
+    }
+
     public double totalInterestEarned() {
         double total = 0;
         for (Account a : accounts)
