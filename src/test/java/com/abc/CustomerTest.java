@@ -56,7 +56,8 @@ public class CustomerTest {
         Account savingsAccount = new Account(Account.SAVINGS);
         Customer oscar = new Customer("Oscar");
 
-        oscar.openAccount(checkingAccount).openAccount(savingsAccount);
+        oscar.openAccount(checkingAccount);
+        oscar.openAccount(savingsAccount);
 
         assertEquals(2, oscar.getNumberOfAccounts());
     }
@@ -88,4 +89,5 @@ public class CustomerTest {
 
         assertEquals(1.1, oscar.totalInterestEarned(), DOUBLE_DELTA);
     }
+
 }
