@@ -67,7 +67,7 @@ public class Account {
     }
 
     private boolean checkIfTransactionsExist() {
-        return !((null == transactions) && (transactions.isEmpty()));
+        return !(transactions.isEmpty());
     }
 
 }
